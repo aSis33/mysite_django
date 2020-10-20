@@ -8,6 +8,7 @@ class Postmovie(models.Model):
     release_date = models.DateField(blank=True, null=True)
     Director_Name = models.CharField(max_length=100)
     Actors_Name = models.CharField(max_length=100)
+    Published_date = models.DateTimeField(blank=True, null=True)
 
-    def __str__(self):
+    def __str__(self):  ##This reutrn title name while in shell or in admin interface
         return self.movie_title

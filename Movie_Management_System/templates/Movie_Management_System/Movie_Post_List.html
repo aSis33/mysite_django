@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COsentiment</title>
+</head>
+<body>
+<h1>COsentiment</h1>
+<h2>Movies</a> </h2>
+
+{% for post in posts %}
+<div>
+    <h1><p> {{post.movie_title}}</p></h1>
+    <h2> Released: {{post.release_date}}</h2>
+    <h2><p> {{post.movie_file | linebreaksbr}}</p></h2>
+    <h3><a href="">WATCH </a> </h3>
+</div>
+{% endfor %}
+
+</body>
+
+</html>
