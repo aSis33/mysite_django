@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+</head>
+<body>
+{% if post.Published_date %}
+    <div>
+        {{ post.Published_date}}
+    </div>
+{% endif %}
+<h1>{{ post.movie_title}}</h1>
+<p>{{post.movie_description | linebreaksbr}}</p>
+</body>
+</html>

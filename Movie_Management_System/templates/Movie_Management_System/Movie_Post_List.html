@@ -13,7 +13,7 @@
     <h1><p> {{post.movie_title}}</p></h1>
     <h2> Released: {{post.release_date}}</h2>
     <h2><p> {{post.movie_file | linebreaksbr}}</p></h2>
-    <h3><a href="">WATCH </a> </h3>
+    <h3><a href="{%url 'Movie_detail' pk=post.pk%}">WATCH </a> </h3> <!-- Maping watch in details view !-->
 </div>
 {% endfor %}
 
