@@ -1,22 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>COsentiment</title>
-</head>
-<body>
-<h1>COsentiment</h1>
-<h2>Movies</a> </h2>
+{% extends 'base.html' %}
+{% block content %}
+<div class="head" style="color:lawngreen">
+        <H1>Movies</H1>
+    </div>
+<div class="HOMEPAGE"   >
 
-{% for post in posts %}
-<div>
-    <h1><p> {{post.movie_title}}</p></h1>
-    <h2> Released: {{post.release_date}}</h2>
-    <h2><p> {{post.movie_file | linebreaksbr}}</p></h2>
-    <h3><a href="{%url 'Movie_detail' pk=post.pk%}">WATCH </a> </h3> <!-- Maping watch in details view !-->
+    <div class="row">
+
+        {% for post in posts %}
+        <div class="card" style="width: 18rem;">
+            {% load static %}
+            <img class="card-img-top" style="url('{{post.Thumbnail}}')" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{post.movie_title}}</h5>
+                <p class="card-text">Released: {{post.release_date}}</p>
+
+                <div class="Watch">
+                  <h3>
+                    <a href="{% url 'Movie_detail' pk=post.pk%}" class="btn btn-primary"> WATCH </a>
+                  </h3>
+                </div>
+
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+    </div>
 </div>
-{% endfor %}
+{% endblock content %}
 
-</body>
-
-</html>

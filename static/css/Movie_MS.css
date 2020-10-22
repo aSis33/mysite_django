@@ -1,0 +1,42 @@
+.page-header{
+    background-color: lawngreen;
+    padding: 20px 20px 20px 40px;
+    margin-top:0;
+}
+.page-header h1, .page-header h1 a{
+    color: black;
+    font-size: 50pt;
+    text-decoration: none; /* removing underlines while hovering *//
+}
+
+.content{
+    margin-right = 40px;
+    background-color: black;
+}
+
+.homepage{
+    background-color: black;
+}
+
+.card{   /* Maintaining gaps between 2 cards */
+    width: 5%;
+    margin: 1%;
+    border-radius: 5px;
+    float: left;
+    position: relative;
+    height: 200px;
+    overflow: hidden; /* it clips the overflow rest of the content remains invisible */
+}
+
+
+.row {
+    color: Black;
+}
+
+.row a:visited{  /* Turns visited link into green (a) is anchor tag used is for links */
+    color: lawngreen;
+}
+
+
+
+
