@@ -1,31 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-{% if post.Published_date %}
-<div class="published_Date" style="color:snow">
-    <br><br>
-    <video width='1000' controls> <!--video player using html-->
-        <source src='/media/movies/{{stuff_for_frontend.videofile}}' type='/movies/mp4'>
+
+<body>
+<h1 style="color:white"> MOVIES </h1>
+<div class="Movie_player" style="color:white">
+    {% for x in all %}
+    <h3 class="text-center mt-2 mb-2">{{x.movie_title }}</h3>
+
 
     </video>
+    <video width='1000' style="margin-bottom:100px;" controls> <!--video player using html-->
+    {% if x.movie_file %}
+        <source src="{{x.movie_file.url}}" type="video/mp4"/>
+    {% endif %}
+
+    </video>
+
+    {% endfor %}
     <br><br>
-
-
-    <script>
-        'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make  website faster. .
-
-    </script>
-    <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
-    <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster
-
-
-    </script>
-    <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
-    </html>
-    <h1>{{ post.movie_title}}</h1>
-    <p>{{post.movie_description | linebreaksbr}}</p>
-    <h2>{{ post.Published_date}}</h2>
 </div>
+</body>
+<script>
+    'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make  website faster. .
+</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster
 
-{% endif %}
+</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
 
-{% endblock content %}
+
+</div>
+</body>
+
+{% endblock %}

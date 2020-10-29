@@ -4,34 +4,40 @@
     margin-top:0;
 }
 .page-header h1, .page-header h1 a{
-    color: black;
+    color: white;
     font-size: 50pt;
     text-decoration: none; /* removing underlines while hovering *//
 }
 
 .content{
     margin-right = 40px;
-    background-color: black;
+    /*background-color: black;*/
 }
 
 .homepage{
-    background-color: black;
+  /*  background-color: black;*/
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .card{   /* Maintaining gaps between 2 cards */
-    width: 5%;
+    width: 30%;
     margin: 1%;
-    border-radius: 5px;
+    border-radius: 3px;
     float: left;
     position: relative;
-    height: 200px;
-    overflow: hidden; /* it clips the overflow rest of the content remains invisible */
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 350px;
+
+    border: 2px solid lawngreen;
+
+
+     /* it clips the overflow rest of the content remains invisible */
 }
 
 
-.row {
-    color: Black;
-}
+
 
 .row a:visited{  /* Turns visited link into green (a) is anchor tag used is for links */
     color: lawngreen;
@@ -40,3 +46,31 @@
 
 
 
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    background-attachment: fixed;
+    background-position: top right;
+
+
+}
+
+.Movie_player{
+    Margin-bottom:200px;
+}
+.row{
+    background-color: black;
+}
+
+
+.card-body{
+    color:white;
+}
+
+.Form_for_EDIT textarea {
+     width: 100%
+}
+
+.Form_for_EDIT .btn-primary {
+    float: right;
+}

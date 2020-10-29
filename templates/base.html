@@ -9,19 +9,45 @@
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/Movie_MS.css'%}">
 </head>
-<body style="background-color: black;">
+
 <div class="page-header">
     <h1><a href="/"> COsentiment </a></h1>
 </div>
+<body style="background-color: black; color: lawngreen;" >
+<div class="content container" style="background-color:black">
+{% block content %}
 
-<div class="content container">
+{% endblock %}
 
-            {% block content %}
-
-            {% endblock %}
-
-    </div>
 </div>
+
+
+<footer class="page-footer font-small unique-color-white pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container w3-teal">
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+        <h5 class="mb-1" style="color: lawngreen">Register for free</h5>
+      </li>
+      <li class="list-inline-item">
+        <a href="/register" class="btn btn-outline-info">Sign up!</a>
+      </li>
+    </ul>
+    <!-- Call to action -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="color:white">© 2020 Copyright:
+    <a href="/"> Cosentiment.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
 
 </body>
 

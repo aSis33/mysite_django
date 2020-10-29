@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>POST HERE </h1>
+
+    <form method="post" enctype="multipart/form-data" class="Form_for_EDIT"> <!-- enctype allows files to be sent through post method -->
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="btn btn-outline-info">SAVE</button>
+    </form>
+
+{% endblock %}

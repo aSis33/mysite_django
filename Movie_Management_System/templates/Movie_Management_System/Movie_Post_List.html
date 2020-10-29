@@ -3,24 +3,21 @@
 <div class="head" style="color:lawngreen">
         <H1>Movies</H1>
     </div>
-<div class="HOMEPAGE"   >
+<div class="HOMEPAGE">
 
-    <div class="row">
+    <div class="row" style="background-color:black">
 
         {% for post in posts %}
+
+
         <div class="card" style="width: 18rem;">
-            {% load static %}
-            <img class="card-img-top" style="url('{{post.Thumbnail}}')" alt="Card image cap">
+            {% if post.Thumbnail %}
+            <img class="card-img-top" src="{{post.Thumbnail.url}}" alt="Card image cap">
+            {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{post.movie_title}}</h5>
                 <p class="card-text">Released: {{post.release_date}}</p>
-
-                <div class="Watch">
-                  <h3>
-                    <a href="{% url 'Movie_detail' pk=post.pk%}" class="btn btn-primary"> WATCH </a>
-                  </h3>
-                </div>
-
+                <a href="{% url 'Movie_detail' pk=post.pk %}"class="btn btn-primary">Watch</a>
             </div>
         </div>
 
