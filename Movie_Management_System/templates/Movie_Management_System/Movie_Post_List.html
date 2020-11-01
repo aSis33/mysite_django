@@ -17,7 +17,9 @@
             <div class="card-body">
                 <h5 class="card-title">{{post.movie_title}}</h5>
                 <p class="card-text">Released: {{post.release_date}}</p>
-                <a href="{% url 'Movie_detail' pk=post.pk %}"class="btn btn-primary">Watch</a>
+                <a href="{{ post.id }}"class="btn btn-primary">Watch</a>
+<!--                <a href="{{ post.movie_file.url }}"class="btn btn-primary">Watch</a>-->
+
             </div>
         </div>
 

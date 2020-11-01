@@ -74,3 +74,12 @@
 .Form_for_EDIT .btn-primary {
     float: right;
 }
+
+.med{
+    margin-bottom: 25px;
+    float:right;
+}
+
+#med .Title{
+    float:right;
+}

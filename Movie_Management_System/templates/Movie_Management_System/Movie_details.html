@@ -2,35 +2,66 @@
 {% block content %}
 
 <body>
-<h1 style="color:white"> MOVIES </h1>
+<!-- Doing all CSS things here as well-->
+<h1 style="color:white; margin-bottom:5%; margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;"> {{ obj.movie_title }} </h1>
 <div class="Movie_player" style="color:white">
-    {% for x in all %}
-    <h3 class="text-center mt-2 mb-2">{{x.movie_title }}</h3>
 
+    <div class="act" style="margin: auto;
+    width: 70%;
+    border: 3px solid green;
+    padding: 10px;">
+        <video width='90%'  controls> &lt;!&ndash;video player using html&ndash;&gt;
+            {% if obj.movie_file %}
 
-    </video>
-    <video width='1000' style="margin-bottom:100px;" controls> <!--video player using html-->
-    {% if x.movie_file %}
-        <source src="{{x.movie_file.url}}" type="video/mp4"/>
-    {% endif %}
-
-    </video>
-
-    {% endfor %}
-    <br><br>
+            <source src="{{ obj.movie_file.url }}" type="video/mp4"/>
+            {% endif %}
+        </video>
+    </div>
+    <div class="container" style="background: rgba(255, 255, 255, 0.05);
+    /* background: #fff; */
+    padding: 20px;
+    font-size: 12px;
+    position: relative; margin-left: 6px">
+        <div class="thumbu" style="width: 140px;
+    height: 210px;
+    float: left;
+    margin-right: 20px;
+    float: unset;">
+            {% if obj.Thumbnail %}
+            <img class="card-img-top" src="{{obj.Thumbnail.url}}">
+            {% endif %}
+        </div>
+        <h2>About Movie: {{obj.movie_description }}</h2>
+        <h2>Released Date: {{obj.release_date }}</h2>
+        <h2>Director Name: {{obj.Director_Name }}</h2>
+    </div>
 </div>
+
+
+<script>
+    'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.
+</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+</html>
+
+
 </body>
 <script>
     'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make  website faster. .
+
 </script>
 <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
 <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster
+
 
 </script>
 <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
 
 
 </div>
-</body>
+
 
 {% endblock %}
