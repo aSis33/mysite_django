@@ -12,7 +12,11 @@
 </head>
 
 <div class="page-header">
+    {% if user.is_authenticated %}
+    <h1><a href="{% url 'PostV'%}" class="top_topper"><i class="fas fa-plus-circle fa-1x" style="color: white"></i></a></h1>
+    {% endif %}
     <h1><a href="/"> COsentiment </a></h1>
+
 </div>
 <body style="background-color: black; color: lawngreen;" >
 <div class="content_container" style="background-color:black">

@@ -1,6 +1,6 @@
 .page-header{
     background-color: lawngreen;
-    padding: 20px 20px 20px 40px;
+    padding: 10px 10px 20px 0px;
     margin-top:0;
 }
 .page-header h1, .page-header h1 a{
@@ -60,6 +60,8 @@
 }
 .row{
     background-color: black;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 
@@ -82,4 +84,10 @@
 
 #med .Title{
     float:right;
+}
+
+/** This style is for + symbol to add Upload the movie */
+.top_topper{
+    float: right;
+    margin-top: 20px;
 }

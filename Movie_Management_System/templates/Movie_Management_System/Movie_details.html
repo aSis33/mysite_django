@@ -4,8 +4,9 @@
 <body xmlns="http://www.w3.org/1999/html">
 <!-- Doing all CSS things here as well-->
 <!-- Using edit button to edit the post -->
+{% if user.is_authenticated %} <!-- Adding a basic security Hides the link if user in not logged in-->
 <a href="{% url 'POST_EDIT' pk=obj.pk%}"><i class="far fa-edit fa-4x fa-solid" style="color:lawngreen"></i></a>
-
+{% endif %}
 
 <h1 style="color:white; margin-bottom:5%; margin: auto;
   width: 50%;
