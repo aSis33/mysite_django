@@ -17,16 +17,11 @@ def Movie_Post_List(request):
 
 
 class Movie_detail(DetailView):
-    #lastvideo = Postmovie.objects.last()
-    #movie_file = lastvideo.movie_file
-    #post = Postmovie.objects.filter(Published_date__lte=timezone.now()).order_by('-Published_date')
-    # movie = Postmovie.objects.all()
-    # stuff_for_frontend = {'post': movie}
-    # return render(request, 'Movie_Management_System/Movie_details.html', stuff_for_frontend)  # render movie details
-
+    # USing generic detail view
     context_object_name = 'obj'
     template_name = 'Movie_Management_System/Movie_details.html'
     model = Postmovie
+
 
 def PostV(request):
     # on Post request it will do this
@@ -44,11 +39,13 @@ def PostV(request):
         form = Postform()
     return render(request, 'Movie_Management_System/Post_Edit.html', {"form": form})
 
+
 def edit_post(request, pk):
     # on Post request it will do this
     localpost = get_object_or_404(Postmovie, pk=pk)
     if request.method == 'POST':
-        form = Postform(request.POST, request.FILES, instance=localpost)  # Fill out the from based on the input information
+        form = Postform(request.POST, request.FILES,
+                        instance=localpost)  # Fill out the from based on the input information
         if form.is_valid():
             localpost = form.save(commit=False)
             localpost.Published_date = timezone.now()
@@ -57,4 +54,4 @@ def edit_post(request, pk):
     else:
         # on Get request this code is used
         form = Postform()
-    return render(request, 'Movie_Management_System/Post_Edit.html', {"form":form})
+    return render(request, 'Movie_Management_System/Post_Edit.html', {"form": form})

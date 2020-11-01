@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="head" style="color:lawngreen">
-        <H1>Movies</H1>
-    </div>
+    <H1>Movies</H1>
+</div>
 <div class="HOMEPAGE">
 
     <div class="row" style="background-color:black">
@@ -17,8 +17,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{post.movie_title}}</h5>
                 <p class="card-text">Released: {{post.release_date}}</p>
-                <a href="{{ post.id }}"class="btn btn-primary">Watch</a>
-<!--                <a href="{{ post.movie_file.url }}"class="btn btn-primary">Watch</a>-->
+                <a href="{{ post.pk }}" class="btn btn-primary">Watch</a>
+                <!--                <a href="{{ post.movie_file.url }}"class="btn btn-primary">Watch</a>-->
 
             </div>
         </div>

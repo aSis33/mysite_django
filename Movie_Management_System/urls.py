@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.Movie_Post_List, name="movie_post_list"),
     path('<int:pk>', views.Movie_detail.as_view(), name="Movie_detail"),
     path('post/new/', views.PostV, name="PostV"),
-    path('post/<int:pk>/edit/', views.edit_post, name="POST_EDIT"),
+    path('<int:pk>/edit/', views.edit_post, name="POST_EDIT"),
 ]

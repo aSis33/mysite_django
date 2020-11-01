@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<body>
+<body xmlns="http://www.w3.org/1999/html">
 <!-- Doing all CSS things here as well-->
+<!-- Using edit button to edit the post -->
+<a href="{% url 'POST_EDIT' pk=obj.pk%}"><i class="far fa-edit fa-4x fa-solid" style="color:lawngreen"></i></a>
+
+
 <h1 style="color:white; margin-bottom:5%; margin: auto;
   width: 50%;
   border: 3px solid green;
-  padding: 10px;"> {{ obj.movie_title }} </h1>
+  padding: 10px; text-align: center;"> {{ obj.movie_title }} </h1>
 <div class="Movie_player" style="color:white">
 
+
     <div class="act" style="margin: auto;
-    width: 70%;
+    width: 80%;
     border: 3px solid green;
-    padding: 10px;">
-        <video width='90%'  controls> &lt;!&ndash;video player using html&ndash;&gt;
+    padding: 10px; text-align: center;">
+        <video width='90%' controls> &lt;!&ndash;video player using html&ndash;&gt;
             {% if obj.movie_file %}
 
             <source src="{{ obj.movie_file.url }}" type="video/mp4"/>
@@ -24,7 +29,7 @@
     /* background: #fff; */
     padding: 20px;
     font-size: 12px;
-    position: relative; margin-left: 6px">
+    position: relative; width: auto;">
         <div class="thumbu" style="width: 140px;
     height: 210px;
     float: left;
@@ -43,6 +48,7 @@
 
 <script>
     'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.
+
 </script>
 <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
 </html>
@@ -52,9 +58,11 @@
 <script>
     'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make  website faster. .
 
+
 </script>
 <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
 <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster
+
 
 
 </script>
