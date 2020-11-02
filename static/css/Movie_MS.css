@@ -83,11 +83,162 @@
 }
 
 #med .Title{
-    float:right;
+    text-align: right;
 }
 
-/** This style is for + symbol to add Upload the movie */
-.top_topper{
-    float: right;
-    margin-top: 20px;
+/** This style is for drafs button*/
+.Draft_class{
+  float: right;
+  position: relative;
+  display: inline-block;
+
+}
+
+.Draft_class .Drafts_here {
+  visibility: hidden;
+  width: 300px;
+  background-color: lawngreen;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 110%;
+  border: solid;
+}
+
+.Draft_class .Drafts_here::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+
+.Draft_class:hover .Drafts_here {
+  visibility: visible;
+}
+
+
+/* This Hovering is for Add post button*/
+
+.Add_class{
+  float: right;
+  position: relative;
+  display: inline-block;
+
+}
+
+.Add_class .Post_here {
+  visibility: hidden;
+  width: 300px;
+  background-color: lawngreen;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 110%;
+  border: solid;
+}
+
+.Add_class .Post_here::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+
+.Add_class:hover .Post_here {
+  visibility: visible;
+}
+
+/* Hovering for edit button in detail page */
+
+.Edit_Hover {
+  position: relative;
+  display: inline-block;
+}
+
+.Edit_Hover .Edit_here {
+  visibility: hidden;
+  width: 300px;
+  background-color: lawngreen;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+  border: solid;
+  border-color: black;
+}
+
+.Edit_Hover .Edit_here::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+.Edit_Hover:hover .Edit_here {
+  visibility: visible;
+}
+
+.date{
+   color: #828282;
+}
+
+/*
+Hover for movie title in draft */
+
+.Click_it {
+  position: relative;
+  display: inline-block;
+}
+
+.Click_it .Movietitle_indraft {
+  visibility: hidden;
+  width: 300px;
+  background-color: lawngreen;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+  border: solid;
+  border-color: black;
+}
+
+.Click_it .Movietitle_indraft::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+.Click_it:hover .Movietitle_indraft {
+  visibility: visible;
 }

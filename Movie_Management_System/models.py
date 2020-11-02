@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 # Create your models here.
 class Postmovie(models.Model):
@@ -11,6 +11,10 @@ class Postmovie(models.Model):
     Actors_Name = models.CharField(max_length=100)
     Published_date = models.DateTimeField(blank=True, null=True)
     Thumbnail = models.ImageField(upload_to="media/gallery", null=False)
+
+    def publish(self):
+        self.Published_date = timezone.now()
+        self.save()
 
     def __str__(self):   ##returns the title in the shell
         return self.movie_title

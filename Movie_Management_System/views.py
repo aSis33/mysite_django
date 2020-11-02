@@ -30,7 +30,7 @@ def PostV(request):
         form = Postform(request.POST, request.FILES)  # Fill out the from based on the input information
         if form.is_valid():
             localpost = form.save(commit=False)
-            localpost.Published_date = timezone.now()
+            # localpost.Published_date = timezone.now() ##we set publish time on below publish post function
             localpost.save()
 
             return redirect('Movie_detail', pk=localpost.pk)
@@ -48,10 +48,26 @@ def edit_post(request, pk):
                         instance=localpost)  # Fill out the from based on the input information
         if form.is_valid():
             localpost = form.save(commit=False)
-            localpost.Published_date = timezone.now()
+            # localpost.Published_date = timezone.now() ##This line of code is used to set publish time same as edit time
             localpost.save()
             return redirect('Movie_detail', pk=localpost.pk)
     else:
         # on Get request this code is used
         form = Postform()
     return render(request, 'Movie_Management_System/Post_Edit.html', {"form": form})
+
+
+def Post_draft(request):
+    post = Postmovie.objects.filter(Published_date__isnull=True).order_by('-release_date')
+    return render(request, 'Movie_Management_System/draft_list.html', {'post': post})
+
+
+def publish_post(request, pk):
+    post = get_object_or_404(Postmovie, pk=pk)
+    post.publish()  # This publish method is already created in model.py
+    return redirect('Movie_detail', pk=pk)
+
+def delete_movies(request, pk):
+    movie = Postmovie.objects.get(pk=pk)
+    movie.delete()
+    return redirect('movie_post_list')
