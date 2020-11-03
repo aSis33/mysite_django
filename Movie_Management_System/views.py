@@ -39,7 +39,7 @@ def PostV(request):
         form = Postform()
     return render(request, 'Movie_Management_System/Post_Edit.html', {"form": form})
 
-
+#function to edit a post
 def edit_post(request, pk):
     # on Post request it will do this
     localpost = get_object_or_404(Postmovie, pk=pk)
@@ -56,17 +56,18 @@ def edit_post(request, pk):
         form = Postform()
     return render(request, 'Movie_Management_System/Post_Edit.html', {"form": form})
 
-
+#function to list those movies which are not published yet
 def Post_draft(request):
     post = Postmovie.objects.filter(Published_date__isnull=True).order_by('-release_date')
     return render(request, 'Movie_Management_System/draft_list.html', {'post': post})
 
-
+#view for post
 def publish_post(request, pk):
     post = get_object_or_404(Postmovie, pk=pk)
     post.publish()  # This publish method is already created in model.py
     return redirect('Movie_detail', pk=pk)
 
+#view for delete
 def delete_movies(request, pk):
     movie = Postmovie.objects.get(pk=pk)
     movie.delete()

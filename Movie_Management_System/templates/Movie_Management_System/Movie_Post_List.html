@@ -19,7 +19,9 @@
                 <p class="card-text">Released: {{post.release_date}}</p>
                 <a href="{{ post.pk }}" class="btn btn-primary">Watch</a>
                 {% if user.is_superuser %}
-                <a href="{%url 'Delete' pk=post.pk %}" class="btn btn-primary">Delete</a>
+                <a href="{%url 'Delete' pk=post.pk %}" style="margin-left: 10px" class="btn btn-danger"
+                   onclick ="return confirm('Are you sure want to delete this movie?')"><i class="fas fa-trash-alt"></i></a>
+
                 {% endif %}
                 <!--                <a href="{{ post.movie_file.url }}"class="btn btn-primary">Watch</a>-->
 
