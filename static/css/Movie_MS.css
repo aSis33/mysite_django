@@ -77,14 +77,7 @@
     float: right;
 }
 
-.med{
-    margin-bottom: 25px;
-    float:right;
-}
 
-#med .Title{
-    text-align: right;
-}
 
 /** This style is for drafs button*/
 .Draft_class{
@@ -240,5 +233,44 @@ Hover for movie title in draft */
   border-color: transparent black transparent transparent;
 }
 .Click_it:hover .Movietitle_indraft {
+  visibility: visible;
+}
+
+/** Hover for logout button */
+
+.Logout{
+  float: right;
+  position: relative;
+  display: inline-block;
+
+}
+
+.Logout .Log_out {
+  visibility: hidden;
+  width: 300px;
+  background-color: lawngreen;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 110%;
+  border: solid;
+}
+
+.Logout .Log_out::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+
+.Logout:hover .Log_out {
   visibility: visible;
 }
