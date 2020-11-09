@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Search List{% endblock%}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+{% if query %}
+<h1>Posts containing "{{ query }}"</h1>
+           <h3>
+           {% with results.count as total_results %}
+           Found {{ total_results }} result{{ total_results|pluralize }}
+           {% endwith %}
+           </h3>
+<div class="row" style="background-color:black">
+    {% for c in results %}
+<!--   <a href="{{c.get_absolute_url}}"><h3 style="color:lawngreen; font-style:bold; font-size:100px;">{{c.movie_title}}</h3></a>-->
+
+        <div class="card" style="width: 18rem; ">
+            {% if c.Thumbnail %}
+            <img class="card-img-top" src="{{c.Thumbnail.url}}" alt="Card image cap">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{c.movie_title}}</h5>
+                <p class="card-text">Released: {{c.release_date}}</p>
+                <a href="{{ c.get_absolute_url }}" class="btn btn-primary">Watch</a>
+
+                <!--                <a href="{{ post.movie_file.url }}"class="btn btn-primary">Watch</a>-->
+
+            </div>
+        </div>
+
+
+
+
+    {% empty %}
+    <h4 style="color:red">There are no results for your query.</h4>
+    {% endfor %}
+
+    {% else %}
+    <h2>NO QUERY  ERROR </h2>
+    {% endif %}
+</div>
+</html>
+{% endblock %}
+

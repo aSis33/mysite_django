@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
+{% block title %}COsentiment{% endblock%}
 {% block content %}
 <div class="head" style="color:lawngreen">
     <H1>Movies</H1>
 </div>
 <div class="HOMEPAGE">
 
-    <div class="row" style="background-color:black" >
+    <div class="row" style="background-color:black">
 
         {% for post in posts %}
 
 
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; ">
             {% if post.Thumbnail %}
             <img class="card-img-top" src="{{post.Thumbnail.url}}" alt="Card image cap">
             {% endif %}
@@ -20,7 +21,7 @@
                 <a href="{{ post.pk }}" class="btn btn-primary">Watch</a>
                 {% if user.is_superuser %}
                 <a href="{%url 'Delete' pk=post.pk %}" style="margin-left: 10px" class="btn btn-danger"
-                   onclick ="return confirm('Are you sure want to delete this movie?')"><i class="fas fa-trash-alt"></i></a>
+                   onclick="return confirm('Are you sure want to delete this movie?')"><i class="fas fa-trash-alt"></i></a>
 
                 {% endif %}
                 <!--                <a href="{{ post.movie_file.url }}"class="btn btn-primary">Watch</a>-->
@@ -31,7 +32,11 @@
 
         {% endfor %}
 
+
     </div>
+
+
 </div>
+
 {% endblock content %}
 

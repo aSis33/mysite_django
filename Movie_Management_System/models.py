@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -20,5 +21,8 @@ class Postmovie(models.Model):
 
     def __str__(self):   ##returns the title in the shell
         return self.movie_title
+
+    def get_absolute_url(self): ## using get_absolute_url to redirect to detail page from search engine
+        return reverse('Movie_detail', args=[self.id,])
 
 

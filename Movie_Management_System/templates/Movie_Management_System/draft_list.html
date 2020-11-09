@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Drafts{% endblock%}
 {% block content %}
 
 
@@ -6,6 +7,7 @@
 <div class="post">
     <p class="date" style="margin-button: 25px">Released: {{ posts.release_date | date:'m-d-Y' }}
     <h1><a href="{%url 'Movie_detail' pk=posts.pk %}" class="Click_it" style="color:red;">Movie Title: {{ posts.movie_title }}
+    onclick ="return confirm('You sure you want to logout ??')"><i class="fas fa-trash-alt"></i>
         <span class="Movietitle_indraft" style="font-size:50px" >CLICK TO VISIT PUBLISH PAGE </span>
     </a></h1>
     {% if posts.Thumbnail %}
@@ -13,6 +15,9 @@
     {% endif %}
     </p>
 </div>
+
+{% empty %} <!--Giving condition if draft is empty -->
+<h1 style="color:red; text-align:center; font-size:50px;">"DRAFT IS EMPTY"</h1>
 
 {% endfor %}
 {% endblock %}

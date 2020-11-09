@@ -246,18 +246,20 @@ Hover for movie title in draft */
 }
 
 .Logout .Log_out {
-  visibility: hidden;
-  width: 300px;
-  background-color: lawngreen;
-  color: black;
+   visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 5px 0;
+
+  /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  top: -5px;
-  right: 110%;
-  border: solid;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
 }
 
 .Logout .Log_out::after {
@@ -274,3 +276,4 @@ Hover for movie title in draft */
 .Logout:hover .Log_out {
   visibility: visible;
 }
+

@@ -5,7 +5,7 @@ from django.views.generic import DetailView
 from .models import Postmovie
 from .forms import Postform, RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
-
+from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -120,4 +120,15 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('movie_post_list')
+
+
+def show_list(request):
+    query = None
+    results = []
+    if request.method == "GET":
+        query=request.GET.get("search")
+        results=Postmovie.objects.filter(Q(movie_title__icontains=query) | Q(movie_description__icontains=query))
+        
+
+    return render(request,"Movie_Management_System/search_list.html",{'query':query,'results':results})
 

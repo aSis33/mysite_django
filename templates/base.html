@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>COsentiment</title>
+    <title>{% block title %} {% endblock %}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@900&display=swap" rel="stylesheet"
           type="text/css">
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -11,10 +11,12 @@
     <script src="https://kit.fontawesome.com/6cb2c74aa7.js" crossorigin="anonymous"></script>
 </head>
 
+
 <div class="page-header">
+
     {% if user.is_authenticated %}
     <h1 style="float:right; margin-top: 4px; font-size:40px; position: relative;
-  display: inline-block;}">Welcome {{ request.user.username }} </h1>
+  display: inline-block;}"><img src="https://fontmeme.com/permalink/201108/0c2c45b6174aa7bbb1faa04ee4490b42.png" alt="netflix-font" border="0">{{ request.user.username }} </h1>
 
     {% if user.is_superuser %}
     <h1><a href="{% url 'Post_Draft' %}" class="Draft_class " style="text-align:right; margin: 7px;"><i class="fas fa-pencil-ruler">
@@ -28,8 +30,23 @@
 
     {% endif %}
 
-    <h1><a href="/"> COsentiment </a></h1>
 
+    <h1><a href="/"><img src="https://fontmeme.com/permalink/201108/83d3d69dcbf843d5623037e5c02c5329.png" alt="netflix-font" border="0"></a><h1>
+<!--    <form class="search-bar" method="get" style="text-align-last: end;" action="{%url 'Show_list'%}">-->
+<!--        <input type="text" name="q" type="search"  aria-label="Search" style="width: 200px; height: 50px;">-->
+<!--        <button class="btn btn-outline-info" type="submit" style="color:Black; height:50px;">Search</button>-->
+<!--    </form>-->
+    <form action="{% url 'Show_list' %}" class="form-inline" method="get" style="float: right; margin-top: 20px;">
+
+        <div class="form-group mb-2" >
+
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+        <label for="" class="sr-only">search</label>
+        <input name="search" type="" class="form-control" id="" placeholder="type for search">
+        </div>
+      <button type="submit" class="btn btn-primary btn-lg mb-2">search</button>
+    </form>
 </div>
 <body style="background-color: black; color: lawngreen;" >
 <div class="content_container" style="background-color:black">
@@ -40,7 +57,7 @@
 </div>
 
 
-<footer class="page-footer font-small unique-color-white pt-4">
+<footer class="page-footer font-small unique-color-white pt-4 "  >
 
   <!-- Footer Elements -->
   <div class="container w3-teal">
@@ -49,8 +66,9 @@
     <ul class="list-unstyled list-inline text-center py-2">
       <h1><li class="list-inline-item">
       {% if request.user.is_authenticated %}
-         <a href="{% url 'logout'%}" class="Logout"><i class="fas fa-sign-out-alt fa-1x" style="color:white"></i>
+         <a href="{% url 'logout'%}" class="Logout" onclick="return confirm('YOU WILL BE LOGGED OUT !!')"><i class="fas fa-sign-out-alt fa-1x" style="color:white" > </i>
          <span class="Log_out" style="font-size:20px" >LOGOUT</span></a></h1>
+
       {% else %}
         <h5 class="mb-1" style="color: lawngreen">Register for free</h5>
       </li>

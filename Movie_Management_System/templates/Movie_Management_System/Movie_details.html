@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
+{% block title %}{{obj.movie_title}}{% endblock%}
 {% block content %}
 
 <body xmlns="http://www.w3.org/1999/html">
 <!-- Doing all CSS things here as well-->
 <!-- Using edit button to edit the post -->
 {% if user.is_authenticated %} <!-- Adding a basic security Hides the link if user in not logged in-->
+{% if user.is_superuser %}
 <a href="{% url 'POST_EDIT' pk=obj.pk%}" class="Edit_Hover"><i class="far fa-edit fa-4x fa-solid" style="color:lawngreen">
      <span class="Edit_here" style="font-size:50px" >Edit here</span>
 </i></a>
+{% endif %}
 {% if obj.Published_date %}
  Published date : {{ obj.Published_date }}
 {% else %}
