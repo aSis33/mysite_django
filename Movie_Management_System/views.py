@@ -146,3 +146,8 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request,"Movie_Management_System/add_comment_to_post.html",{'form':form})
+
+def comment_remove(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return redirect('Movie_detail', pk=comment.post.pk) ##digging into the post and that post primary key

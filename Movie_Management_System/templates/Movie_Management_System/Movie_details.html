@@ -2,7 +2,7 @@
 {% block title %}{{obj.movie_title}}{% endblock%}
 {% block content %}
 
-<body xmlns="http://www.w3.org/1999/html">
+<body xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <!-- Doing all CSS things here as well-->
 <!-- Using edit button to edit the post -->
 {% if user.is_authenticated %} <!-- Adding a basic security Hides the link if user in not logged in-->
@@ -69,16 +69,21 @@
 
     {% for comment in obj.comments.all %}
         <hr>
-        <div class="date">
+        <div class="date" style="font-size: 15px;">
             {{ comment.Created_date }}
         </div>
-        <h3><strong>{{ comment.author }} </strong></h3>
+
+        <h3><strong>Commented by: {{ comment.author }}
+            {% if user.is_superuser %}
+            <a href="{% url 'comment_remove' pk=comment.pk %}" class="btn-btn-danger"><i class="fas fa-trash-alt"></i></a> </strong>
+            {% endif %}
         <p>{{ comment.text }}</p>
     </p>
     {% empty %}
          <p style="margin-left:200px">No Comments Yet.....!!!</p>
     {% endfor %}
-    </div>
+     </div>
+
 
 
 
