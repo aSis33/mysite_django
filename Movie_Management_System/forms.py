@@ -1,5 +1,5 @@
 from django import forms
-from .models import Postmovie
+from .models import Postmovie, Comment
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 class Postform(forms.ModelForm):
@@ -18,4 +18,9 @@ class RegistrationForm(UserCreationForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('text',)
 

@@ -25,4 +25,11 @@ class Postmovie(models.Model):
     def get_absolute_url(self): ## using get_absolute_url to redirect to detail page from search engine
         return reverse('Movie_detail', args=[self.id,])
 
+class Comment(models.Model):
+    post = models.ForeignKey('Movie_Management_System.Postmovie', on_delete= models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=15)
+    text = models.TextField()
+    Created_date = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.text

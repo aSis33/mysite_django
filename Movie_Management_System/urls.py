@@ -23,7 +23,8 @@ urlpatterns = [
 
     path('logout/', views.user_logout, name='logout'),
 
-    path('showlist/', views.show_list, name='Show_list')
+    path('showlist/', views.show_list, name='Show_list'),
 
+    path('<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
 
 ]

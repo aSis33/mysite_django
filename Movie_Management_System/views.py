@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.views.generic import DetailView
-from .models import Postmovie
-from .forms import Postform, RegistrationForm, LoginForm
+from .models import Postmovie, Comment
+from .forms import Postform, RegistrationForm, LoginForm, CommentForm
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
@@ -132,3 +132,17 @@ def show_list(request):
 
     return render(request,"Movie_Management_System/search_list.html",{'query':query,'results':results})
 
+@login_required
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Postmovie, pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            return redirect("Movie_detail", pk=post.pk) ##redirecting to the that movie detail after commenting
+    else:
+        form = CommentForm()
+    return render(request,"Movie_Management_System/add_comment_to_post.html",{'form':form})

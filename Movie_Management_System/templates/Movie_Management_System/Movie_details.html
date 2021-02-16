@@ -54,7 +54,35 @@
         <h2>Movie Description: {{obj.movie_description }}</h2>
         <h2>Released Date: {{obj.release_date }}</h2>
         <h2>Director Name: {{obj.Director_Name }}</h2>
+   </div>
+    <hr>
+    {% if user.is_authenticated %}
+    <a href="{% url 'add_comment_to_post' pk=obj.pk%}" class="btn-btn-secondary" style="
+    margin-left:200px;
+    font-size: 30px;
+    width: 80%;
+    border: 3px solid green;
+     color:white;">Add Comment</a>
+    {% endif %}
+    <hr>
+    <div style="margin-left:200px; color:red;" >
+
+    {% for comment in obj.comments.all %}
+        <hr>
+        <div class="date">
+            {{ comment.Created_date }}
+        </div>
+        <h3><strong>{{ comment.author }} </strong></h3>
+        <p>{{ comment.text }}</p>
+    </p>
+    {% empty %}
+         <p style="margin-left:200px">No Comments Yet.....!!!</p>
+    {% endfor %}
     </div>
+
+
+
+
 </div>
 
 
